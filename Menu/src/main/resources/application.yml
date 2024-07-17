@@ -1,0 +1,16 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: "Menu"
+  profiles:
+    active: "prod"
+  datasource:
+    url: jdbc:mysql://localhost:3306/menu_item_db
+    username: root
+    password: root
+  jpa:
+    show-sql: true
+  sql:
+    init:
+      mode: always
