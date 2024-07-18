@@ -42,4 +42,12 @@ public class MenuItemService implements IMenuItemService {
                 .collect(Collectors.toList());
 
     }
+
+    @Override
+    public void updateMenuItem(MenuItemDto menuItemDto, Long id) {
+        MenuItem menuItem = menuItemRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Menu Item", "Id", id));
+        MenuItemMapper.mapToMenuItem(menuItemDto, menuItem);
+        menuItemRepository.save(menuItem);
+    }
 }

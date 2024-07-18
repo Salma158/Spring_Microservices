@@ -39,5 +39,13 @@ public class MenuItemController {
         return ResponseEntity.status(HttpStatus.OK).body(menuItemDtos);
     }
 
+    @PutMapping("/update")
+    public ResponseEntity<ResponseDto> updateAccountDetails(@RequestBody MenuItemDto menuItemDto, @RequestParam Long id) {
+        iMenuItemService.updateMenuItem(menuItemDto, id);
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(new ResponseDto(MenuItemConstants.STATUS_200, MenuItemConstants.MESSAGE_200));
+    }
+
 
 }
