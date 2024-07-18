@@ -10,6 +10,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -30,5 +32,14 @@ public class MenuItemService implements IMenuItemService {
                 () -> new ResourceNotFoundException("Menu Item", "Id", id));
         MenuItemDto menuItemDto = MenuItemMapper.mapToMenuItemDto(menuItem, new MenuItemDto());
         return menuItemDto;
+    }
+
+    @Override
+    public List<MenuItemDto> fetchMenuItems() {
+        List<MenuItem> MenuItems = menuItemRepository.findAll();
+        return MenuItems.stream()
+                .map((menuItem) -> MenuItemMapper.mapToMenuItemDto(menuItem, new MenuItemDto()))
+                .collect(Collectors.toList());
+
     }
 }

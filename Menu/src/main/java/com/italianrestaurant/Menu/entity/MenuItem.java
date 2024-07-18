@@ -18,6 +18,8 @@ public class MenuItem extends BaseEntity {
 
     private String description;
 
+    private Long price;
+
     private String imageUrl;
 
     private Long categoryId;

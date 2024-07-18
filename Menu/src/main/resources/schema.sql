@@ -2,6 +2,7 @@ CREATE TABLE IF NOT EXISTS menu_item (
     id              INT AUTO_INCREMENT PRIMARY KEY,
     name            VARCHAR(255) NOT NULL,
     description     TEXT,
+    price           INT,
     image_url       VARCHAR(255),
     category_id     INT NOT NULL,
     subcategory_id  INT,

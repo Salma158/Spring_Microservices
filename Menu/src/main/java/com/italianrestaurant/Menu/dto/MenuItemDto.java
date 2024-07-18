@@ -15,4 +15,6 @@ public class MenuItemDto {
 
     private Long subcategoryId;
 
+    private Long price;
+
 }

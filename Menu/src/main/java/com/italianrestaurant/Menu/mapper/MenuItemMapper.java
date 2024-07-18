@@ -11,6 +11,7 @@ public class MenuItemMapper {
         menuItem.setImageUrl(menuItemDto.getImageUrl());
         menuItem.setCategoryId(menuItemDto.getCategoryId());
         menuItem.setSubcategoryId(menuItemDto.getSubcategoryId());
+        menuItem.setPrice(menuItemDto.getPrice());
         return menuItem;
     }
 
@@ -20,6 +21,7 @@ public class MenuItemMapper {
         menuItemDto.setImageUrl(menuItem.getImageUrl());
         menuItemDto.setCategoryId(menuItem.getCategoryId());
         menuItemDto.setSubcategoryId(menuItem.getSubcategoryId());
+        menuItemDto.setPrice(menuItem.getPrice());
         return menuItemDto;
     }
 }

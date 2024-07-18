@@ -10,6 +10,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/api", produces = {MediaType.APPLICATION_JSON_VALUE})
 @AllArgsConstructor
@@ -29,6 +31,12 @@ public class MenuItemController {
     public ResponseEntity<MenuItemDto> fetchMenuItem(@RequestParam Long id){
         MenuItemDto menuItemDto = iMenuItemService.fetchMenuItem(id);
         return ResponseEntity.status(HttpStatus.OK).body(menuItemDto);
+    }
+
+    @GetMapping("/fetch-all")
+    public ResponseEntity<List<MenuItemDto>> fetchMenuItems(){
+        List<MenuItemDto> menuItemDtos = iMenuItemService.fetchMenuItems();
+        return ResponseEntity.status(HttpStatus.OK).body(menuItemDtos);
     }
 
 
