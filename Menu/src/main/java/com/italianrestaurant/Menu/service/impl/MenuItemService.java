@@ -22,4 +22,9 @@ public class MenuItemService implements IMenuItemService {
         menuItem.setCreatedBy("salma");
         menuItemRepository.save(menuItem);
     }
+
+    @Override
+    public MenuItemDto fetchMenuItem(Long id) {
+        return null;
+    }
 }
