@@ -2,6 +2,7 @@ package com.italianrestaurant.Menu.service.impl;
 
 import com.italianrestaurant.Menu.dto.MenuItemDto;
 import com.italianrestaurant.Menu.entity.MenuItem;
+import com.italianrestaurant.Menu.exception.ResourceNotFoundException;
 import com.italianrestaurant.Menu.mapper.MenuItemMapper;
 import com.italianrestaurant.Menu.repository.MenuItemRepository;
 import com.italianrestaurant.Menu.service.IMenuItemService;
@@ -25,6 +26,9 @@ public class MenuItemService implements IMenuItemService {
 
     @Override
     public MenuItemDto fetchMenuItem(Long id) {
-        return null;
+        MenuItem menuItem= menuItemRepository.findById(id).orElseThrow(
+                () -> new ResourceNotFoundException("Menu Item", "Id", id));
+        MenuItemDto menuItemDto = MenuItemMapper.mapToMenuItemDto(menuItem, new MenuItemDto());
+        return menuItemDto;
     }
 }

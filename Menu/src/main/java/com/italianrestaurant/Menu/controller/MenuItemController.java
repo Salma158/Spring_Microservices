@@ -27,7 +27,8 @@ public class MenuItemController {
 
     @GetMapping("/fetch")
     public ResponseEntity<MenuItemDto> fetchMenuItem(@RequestParam Long id){
-
+        MenuItemDto menuItemDto = iMenuItemService.fetchMenuItem(id);
+        return ResponseEntity.status(HttpStatus.OK).body(menuItemDto);
     }
 
 
