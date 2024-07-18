@@ -4,22 +4,25 @@ import com.italianrestaurant.Menu.constants.MenuItemConstants;
 import com.italianrestaurant.Menu.dto.MenuItemDto;
 import com.italianrestaurant.Menu.dto.ResponseDto;
 import com.italianrestaurant.Menu.service.IMenuItemService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api", produces = {MediaType.APPLICATION_JSON_VALUE})
 @AllArgsConstructor
+@Validated
 public class MenuItemController {
 
     private IMenuItemService iMenuItemService;
 
     @PostMapping("/create")
-    public ResponseEntity<ResponseDto> createMenuItem(@RequestBody MenuItemDto menuItemDto){
+    public ResponseEntity<ResponseDto> createMenuItem(@RequestBody @Valid MenuItemDto menuItemDto){
         iMenuItemService.createMenuItem(menuItemDto);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
