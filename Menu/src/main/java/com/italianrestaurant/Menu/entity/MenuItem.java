@@ -7,7 +7,7 @@ import lombok.*;
 
 @Entity
 @Getter @Setter @ToString @AllArgsConstructor @NoArgsConstructor
-public class MenuItem {
+public class MenuItem extends BaseEntity {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
