@@ -21,8 +21,6 @@ public class MenuItemService implements IMenuItemService {
     @Override
     public void createMenuItem(MenuItemDto menuItemDto) {
         MenuItem menuItem = MenuItemMapper.mapToMenuItem(menuItemDto, new MenuItem());
-        menuItem.setCreatedAt(LocalDateTime.now());
-        menuItem.setCreatedBy("salma");
         menuItemRepository.save(menuItem);
     }
 
