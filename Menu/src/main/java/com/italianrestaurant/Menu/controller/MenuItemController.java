@@ -9,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -40,11 +39,19 @@ public class MenuItemController {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<ResponseDto> updateAccountDetails(@RequestBody MenuItemDto menuItemDto, @RequestParam Long id) {
+    public ResponseEntity<ResponseDto> updateMenuItem(@RequestBody MenuItemDto menuItemDto, @RequestParam Long id) {
         iMenuItemService.updateMenuItem(menuItemDto, id);
             return ResponseEntity
                     .status(HttpStatus.OK)
                     .body(new ResponseDto(MenuItemConstants.STATUS_200, MenuItemConstants.MESSAGE_200));
+    }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<ResponseDto> deleteMenuItem(@RequestParam Long id) {
+        iMenuItemService.deleteMenuItem(id);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(new ResponseDto(MenuItemConstants.STATUS_200, MenuItemConstants.MESSAGE_200));
     }
 
 

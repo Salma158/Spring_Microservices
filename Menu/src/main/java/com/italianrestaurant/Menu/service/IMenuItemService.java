@@ -9,4 +9,5 @@ public interface IMenuItemService {
     MenuItemDto fetchMenuItem(Long id);
     List<MenuItemDto> fetchMenuItems();
     void updateMenuItem(MenuItemDto menuItemDto, Long id);
+    void deleteMenuItem(Long id);
 }

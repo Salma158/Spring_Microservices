@@ -50,4 +50,11 @@ public class MenuItemService implements IMenuItemService {
         MenuItemMapper.mapToMenuItem(menuItemDto, menuItem);
         menuItemRepository.save(menuItem);
     }
+
+    @Override
+    public void deleteMenuItem(Long id) {
+        MenuItem menuItem = menuItemRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Menu Item", "Id", id));
+        menuItemRepository.deleteById(id);
+    }
 }
