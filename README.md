@@ -25,3 +25,11 @@ Create a MySQL database named menu_item_db.
 
 ### 3. Start the Application 🚀
 Run the MenuApplication.main class to start the application.
+
+### 4. Check the Swagger Documentation 📄
+Once the application is running, you can check the Swagger documentation at:
+
+```bash
+http://localhost:8080/swagger-ui.html
+```
+
